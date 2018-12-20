@@ -2,6 +2,10 @@ from django.template import loader
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.db import connection
+from collections import namedtuple
+
+DATABASE_NAME = 'bookdb'
 
 # Create your views here.
 def entrance(request):
@@ -56,3 +60,10 @@ def flight_display(request):
         'session' : request.session,
     }
     return render(request, 'booking_system/flight_display.html', context)
+
+
+def namedtuple_fetchall(cursor):
+    "Return all rows from a cursor as a namedtuple"
+    desc = cursor.description
+    nt_result = namedtuple('Result', [col[0] for col in desc])
+    return [nt_result(*row) for row in cursor.fetchall()]
