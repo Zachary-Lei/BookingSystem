@@ -42,3 +42,17 @@ def register(request):
 def logout(request):
     request.session.flush()
     return HttpResponseRedirect(reverse('booking_system:login'))
+
+
+def flight_query(request):
+    context = {
+        'session' : request.session,
+    }
+    return render(request, 'booking_system/flight_query.html', context)
+
+
+def flight_display(request):
+    context = {
+        'session' : request.session,
+    }
+    return render(request, 'booking_system/flight_display.html', context)

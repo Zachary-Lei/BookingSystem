@@ -5,6 +5,17 @@ body {
 }
 
 .nav-prompt{
-  height: 120px;
+  height: 200px;
+  padding-top: 50px;
   padding-bottom: 30px;
+}
+
+.jumbotron{
+  margin: 0px;
+  padding: 0px;
+  height: 500px;
+  background-image: url(../image/aya.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
